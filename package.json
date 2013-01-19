@@ -1,0 +1,24 @@
+{
+  "name": "untested",
+  "version": "0.0.1",
+  "description": "Orders tests for a source code change based on code coverage analysis.",
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bahmutov/untested.git"
+  },
+  "keywords": [
+    "js", "javascript", 
+    "testing", "quality", 
+    "changelist", "commit"
+  ],
+  "dependencies": {
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "license": "MIT",
+  "preferGlobal": "true",
+  "bin": { "untested": "./untested.js" },
+  "main": { "./untested.js" }
+}
