@@ -14,7 +14,7 @@ var tab = ' '; // console.log adds extra space
 function loadExistingTestPoints() {
 	var data = {};
 	if (fs.existsSync(filename)) {
-		data = require(filename);
+		data = JSON.parse(fs.readFileSync(filename, 'utf-8'));
 		// console.log('loaded data from', filename);
 	} else {
 		console.log('starting new data store');
