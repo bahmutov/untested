@@ -13,7 +13,8 @@
     "changelist", "commit"
   ],
   "dependencies": {
-    "optimist": "latest"
+    "optimist": "latest",
+    "lodash": "latest"
   },
   "engines": {
     "node": ">= 0.8.0"

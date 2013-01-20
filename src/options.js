@@ -9,13 +9,17 @@ function getArguments() {
 		help: false,
 		version: false,
 		test: '',
-		coverage: ''
+		coverage: '',
+		info: false,
+		reset: false
 	})
 	.alias('h', 'help').boolean('help').describe('help', 'show help message and exit')
 	.alias('v', 'version').boolean('version').describe('version', 'show version and exit')
 	.string('test').describe('test', 'test point url / filename')
 	.string('coverage').alias('c', 'coverage').alias('cover', 'coverage')
 	.describe('coverage', 'coverage json filename')
+	.boolean('info').describe('info', 'show current test points in DB')
+	.boolean('reset').describe('reset', 'delete all existing info')
 	.argv;
 	return args;
 };
@@ -31,6 +35,10 @@ function formArguments() {
 		console.log(package.version);
 		process.exit(0);
 	}
+	if (args.info || args.reset) {
+		return args;
+	}
+
 	if (!args.test) {
 		wrongArguments(args, 'missing test filename');
 	}
