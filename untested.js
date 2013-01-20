@@ -1,3 +1,4 @@
+var util = require('util');
 var options = require('./src/options').run();
 console.assert(options, 'could not command line options');
 
@@ -18,5 +19,7 @@ if (options.test && options.coverage) {
 	addTestPoint(options);
 } else if (options.affected) {
 	console.assert(Array.isArray(options.affected), 'expected affected to be an array');
-	console.log('computing list of tests affected by changes in', options.affected);
+	console.log('computing list of tests affected by changes in\n', options.affected);
+	var tests = dataStore.findAffected(options.affected);
+	console.log(util.inspect(tests, true, 2, true));
 }

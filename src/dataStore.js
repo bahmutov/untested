@@ -5,7 +5,7 @@ var _ = require('lodash');
 
 function getUserHome() {
 	var win32 = (process.platform == 'win32');
-  return process.env[win32 ? 'USERPROFILE' : 'HOME'];
+	return process.env[win32 ? 'USERPROFILE' : 'HOME'];
 }
 
 var filename = path.join(getUserHome(), 'testPoints.json');
@@ -33,6 +33,8 @@ function saveDataStore(data) {
 
 function showInfo() {
 	var data = loadExistingTestPoints();
+	console.assert(data, 'could not load data');
+
 	var n = Object.keys(data).length;
 	if (!n) {
 		console.log('empty test data store');
@@ -46,7 +48,7 @@ function showInfo() {
 		Object.keys(coverage).forEach(function (coveredName) {
 			var covered = coverage[coveredName];
 			console.log(tab, covered.name, covered.coverage);
-		});		
+		});
 	});
 }
 
@@ -55,7 +57,50 @@ function reset() {
 	saveDataStore({});
 }
 
+function findAffected(sourceFiles) {
+	console.assert(Array.isArray(sourceFiles), 'expect list of filenames');
+	if (!sourceFiles.length) {
+		console.log('empty list of source files, nothing affected');
+		return [];
+	}
+	sourceFiles = sourceFiles.map(function (filename) {
+		return filename.toLowerCase();
+	});
+
+	var tests = [];
+	var data = loadExistingTestPoints();
+	console.assert(data, 'could not load data');
+	Object.keys(data).forEach(function (testName) {
+		var coverage = data[testName];
+		Object.keys(coverage).forEach(function (coveredName) {
+			var covered = coverage[coveredName];
+			var found = sourceFiles.some(function (sourceFile) {
+				return (covered.name.toLowerCase() == sourceFile);
+			});
+			if (found) {
+				console.log('test', testName, 'covers', covered.name, 'at', covered.coverage + '%');
+				tests.push({
+					name: testName,
+					coverage: covered.coverage
+				});
+			}
+		});
+	});
+
+	return tests;
+}
+
+function findSortedAffected(sourceFiles) {
+	console.assert(Array.isArray(sourceFiles), 'expect list of filenames');
+	var tests = findAffected(sourceFiles);
+	console.assert(Array.isArray(tests), 'could not get back array of tests');;
+
+	tests = _.sortBy(tests, 'coverage').reverse();
+	return tests;
+}
+
 exports.loadExistingTestPoints = loadExistingTestPoints;
 exports.saveDataStore = saveDataStore;
 exports.showInfo = showInfo;
 exports.reset = reset;
+exports.findAffected = findSortedAffected;
