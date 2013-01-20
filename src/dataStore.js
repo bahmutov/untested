@@ -93,9 +93,20 @@ function findAffected(sourceFiles) {
 function findSortedAffected(sourceFiles) {
 	console.assert(Array.isArray(sourceFiles), 'expect list of filenames');
 	var tests = findAffected(sourceFiles);
-	console.assert(Array.isArray(tests), 'could not get back array of tests');;
+	console.assert(Array.isArray(tests), 'could not get back array of tests');
 
 	tests = _.sortBy(tests, 'coverage').reverse();
+	return tests;
+}
+
+function findUniqueAffected(sourceFiles) {
+	console.assert(Array.isArray(sourceFiles), 'expect list of filenames');
+	var tests = findSortedAffected(sourceFiles);
+	console.assert(Array.isArray(tests), 'could not get back array of tests');
+
+	tests = _.uniq(tests, false, function (test) {
+		return test.name;
+	});
 	return tests;
 }
 
@@ -103,4 +114,4 @@ exports.loadExistingTestPoints = loadExistingTestPoints;
 exports.saveDataStore = saveDataStore;
 exports.showInfo = showInfo;
 exports.reset = reset;
-exports.findAffected = findSortedAffected;
+exports.findAffected = findUniqueAffected;

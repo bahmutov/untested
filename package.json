@@ -1,6 +1,6 @@
 {
   "name": "untested",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Orders tests for a source code change based on code coverage analysis.",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "repository": {
