@@ -14,4 +14,9 @@ if (options.reset) {
 	process.exit(0);
 }
 
-addTestPoint(options);
+if (options.test && options.coverage) {
+	addTestPoint(options);
+} else if (options.affected) {
+	console.assert(Array.isArray(options.affected), 'expected affected to be an array');
+	console.log('computing list of tests affected by changes in', options.affected);
+}

@@ -11,7 +11,8 @@ function getArguments() {
 		test: '',
 		coverage: '',
 		info: false,
-		reset: false
+		reset: false,
+		affected: []
 	})
 	.alias('h', 'help').boolean('help').describe('help', 'show help message and exit')
 	.alias('v', 'version').boolean('version').describe('version', 'show version and exit')
@@ -21,6 +22,8 @@ function getArguments() {
 	.describe('coverage', 'coverage json filename')
 	.boolean('info').describe('info', 'show current test points in DB')
 	.boolean('reset').describe('reset', 'delete all existing info')
+	.string('affected').alias('a', 'affected')
+	.describe('affected', 'find tests affected by changes in this source file, can be specified multiple times')
 	.argv;
 	return args;
 };
@@ -37,6 +40,16 @@ function formArguments() {
 		process.exit(0);
 	}
 	if (args.info || args.reset) {
+		return args;
+	}
+
+	if (typeof args.affected === 'string') {
+		args.affected = [args.affected];
+	}
+	args.affected = args.affected.map(function (filename) {
+		return path.resolve(filename);
+	});
+	if (args.affected.length > 0) {
 		return args;
 	}
 
