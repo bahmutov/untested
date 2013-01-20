@@ -1,5 +1,6 @@
 var optimist = require("optimist");
 var package = require('../package.json');
+var path = require('path');
 
 function getArguments() {
 	var args = optimist.usage(package.name + ' version ' + package.version + 
@@ -33,9 +34,12 @@ function formArguments() {
 	if (!args.test) {
 		wrongArguments(args, 'missing test filename');
 	}
+	args.test = path.resolve(args.test);
+
 	if (!args.coverage) {
 		wrongArguments(args, 'missing coverage filename');
 	}
+	args.coverage = path.resolve(args.coverage);
 
 	return args;
 }
