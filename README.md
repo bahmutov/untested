@@ -21,6 +21,14 @@ You have edited *foo.js* and rerun *tests/fooTest.js*. Are you done? No. Do you 
 3. On a commit give the changelist to **untested** and get back ordered list of tests affected.
 4. Run these tests first. Get the results right away.
 
+Usage
+-----
+
+	npm install -g untested
+	gt fooTest.js
+	untested --test fooTest.js --coverage coverage.json
+	gt --info
+
 License
 -------
 MIT style license, see file.

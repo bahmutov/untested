@@ -3,7 +3,12 @@ var path = require('path');
 var util = require('util');
 var _ = require('lodash');
 
-var filename = path.resolve('testPoints.json');
+function getUserHome() {
+	var win32 = (process.platform == 'win32');
+  return process.env[win32 ? 'USERPROFILE' : 'HOME'];
+}
+
+var filename = path.join(getUserHome(), 'testPoints.json');
 var tab = ' '; // console.log adds extra space
 
 function loadExistingTestPoints() {
