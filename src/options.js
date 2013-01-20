@@ -12,7 +12,8 @@ function getArguments() {
 		coverage: '',
 		info: false,
 		reset: false,
-		affected: []
+		affected: [],
+		output: ''
 	})
 	.alias('h', 'help').boolean('help').describe('help', 'show help message and exit')
 	.alias('v', 'version').boolean('version').describe('version', 'show version and exit')
@@ -24,6 +25,8 @@ function getArguments() {
 	.boolean('reset').describe('reset', 'delete all existing info')
 	.string('affected').alias('a', 'affected')
 	.describe('affected', 'find tests affected by changes in this source file, can be specified multiple times')
+	.string('output').alias('o', 'output')
+	.describe('output', 'output filename for test list')
 	.argv;
 	return args;
 };

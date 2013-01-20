@@ -26,7 +26,7 @@ function saveDataStore(data) {
 	console.log('saving data store to', filename);
 
 	data = data || {};
-	fs.writeFileSync(filename, JSON.stringify(data), 'utf-8');
+	fs.writeFileSync(filename, JSON.stringify(data, null, 2), 'utf-8');
 	// console.log(util.inspect(data, true, 2));
 	console.log('saved test info data into', filename);
 }
