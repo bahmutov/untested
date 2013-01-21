@@ -21,7 +21,7 @@ function getArguments() {
 	.describe('test', 'test point url / filename. Returns info for given test if no coverage is given.')
 	.string('coverage').alias('c', 'coverage').alias('cover', 'coverage')
 	.describe('coverage', 'coverage json filename')
-	.boolean('info').describe('info', 'show current test points in DB')
+	.boolean('info').alias('i', 'info').describe('info', 'show current test points in DB')
 	.boolean('reset').describe('reset', 'delete all existing info')
 	.string('affected').alias('a', 'affected')
 	.describe('affected', 'find tests affected by changes in this source file, can be specified multiple times')
