@@ -14,7 +14,8 @@ function getArguments() {
 		reset: false,
 		affected: [],
 		output: '',
-		git: false
+		git: false,
+		run: false
 	})
 	.alias('h', 'help').boolean('help').describe('help', 'show help message and exit')
 	.alias('v', 'version').boolean('version').describe('version', 'show version and exit')
@@ -29,6 +30,7 @@ function getArguments() {
 	.string('output').alias('o', 'output')
 	.describe('output', 'output filename for test list')
 	.boolean('git').describe('git', 'check current git repo for changes, compute tests')
+	.boolean('run').alias('r', 'run').describe('run tests found to be affected')
 	.argv;
 	return args;
 };

@@ -3,7 +3,7 @@ function foo() {
 }
 
 function foo2() {
-	return 'foo2';
+	return 'foo2'; 
 }
 
 function notCalled() {
