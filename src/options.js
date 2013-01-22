@@ -13,7 +13,8 @@ function getArguments() {
 		info: false,
 		reset: false,
 		affected: [],
-		output: ''
+		output: '',
+		git: false
 	})
 	.alias('h', 'help').boolean('help').describe('help', 'show help message and exit')
 	.alias('v', 'version').boolean('version').describe('version', 'show version and exit')
@@ -27,6 +28,7 @@ function getArguments() {
 	.describe('affected', 'find tests affected by changes in this source file, can be specified multiple times')
 	.string('output').alias('o', 'output')
 	.describe('output', 'output filename for test list')
+	.boolean('git').describe('git', 'check current git repo for changes, compute tests')
 	.argv;
 	return args;
 };
@@ -42,7 +44,7 @@ function formArguments() {
 		console.log(package.version);
 		process.exit(0);
 	}
-	if (args.info || args.reset) {
+	if (args.info || args.reset || args.git) {
 		return args;
 	}
 
