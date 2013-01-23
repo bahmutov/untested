@@ -35,15 +35,28 @@ like [*gt*](https://github.com/bahmutov/gt) or [*lasso-node*](https://github.com
 Usage
 -----
 
+Install *gt* (javascript testing) or *lasso-node* (html page testing with coverage) globally.
+
 From *examples/basic* folder
 	
-	gt fooTest.js
-	untested --test fooTest.js --coverage coverage.json
-
-	gt barTest.js
-	untested --test fooTest.js --coverage coverage.json
+	gt fooTest.js --untested
+	gt barTest.js --untested
 
 	untested --affected foo.js // returns both fooTest.js and barTest.js
+
+From *examples/html* folder
+
+	lasso-node index.html --untested
+
+	untested --affected foo.js // returns index.html
+
+Integration with Git
+--------------------
+
+If you are using git, you can ask untested to run unit tests for all modified files (files returned by *git diff --name-only*).
+
+	untested --git // returns list of unit tests for all modified files
+	untested --git --run // runs unit tests for modified files using gt or lasso-node
 
 License
 -------

@@ -70,6 +70,8 @@ function findAffected(sourceFiles) {
 	var tests = [];
 	var data = loadExistingTestPoints();
 	console.assert(data, 'could not load data');
+
+	var coveredSourceFiles = [];
 	Object.keys(data).forEach(function (testName) {
 		var coverage = data[testName];
 		Object.keys(coverage).forEach(function (coveredName) {
@@ -83,10 +85,22 @@ function findAffected(sourceFiles) {
 					name: testName,
 					coverage: covered.coverage
 				});
-			}
+				coveredSourceFiles.push(covered.name);
+			} 
 		});
 	});
-
+	coveredSourceFiles = _.uniq(coveredSourceFiles);
+	coveredSourceFiles = coveredSourceFiles.map(function (filename) {
+		return filename.toLowerCase();
+	});
+	
+	var notCoveredSourceFiles = _.difference(sourceFiles, coveredSourceFiles);
+	if (notCoveredSourceFiles.length) {
+		console.log('Could not find tests for following source files');
+		notCoveredSourceFiles.forEach(function (filename) {
+			console.log(filename);
+		});
+	}
 	return tests;
 }
 

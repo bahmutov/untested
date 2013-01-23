@@ -24,7 +24,7 @@ function showAffectedTests (filenames, outputFilename, runTests) {
 		fs.writeFileSync(outputFilename, info, 'utf-8');
 		console.log('saved', tests.length, 'affected tests names to', outputFilename);
 	} else {
-		console.log(tests.length ? info : 'no tests need to be run');
+		console.log(tests.length ? 'Found ' + tests.length + ' test(s) to run'  : 'no tests need to be run');
 	}
 	if (runTests && tests.length) {
 		console.log('running', tests.length, 'tests affected by latest changes');
