@@ -7,7 +7,9 @@ function jsTest(test) {
 	console.assert(test, 'undefined js test');
 	gt.init({
 		module: [test],
-		colors: true
+		colors: true,
+		cover: 'cover',
+		report: 1
 	});
 	gt.run();
 }
