@@ -39,15 +39,13 @@ Install *gt* (javascript testing) or *lasso-node* (html page testing with covera
 
 From *examples/basic* folder
 	
-	gt fooTest.js --untested
-	gt barTest.js --untested
-
+	gt fooTest.js // add test point info to untested
+	gt barTest.js // add test point info to untested
 	untested --affected foo.js // returns both fooTest.js and barTest.js
 
 From *examples/html* folder
 
-	lasso-node index.html --untested
-
+	lasso-node index.html // add test point info to untested
 	untested --affected foo.js // returns index.html
 
 Integration with Git
