@@ -47,8 +47,10 @@ function run(options) {
 
 	if (options.git) {
 		var git = require('./src/git');
-		git.diff(function (files) {
-			showAffectedTests(files, options.output, options.run);
+		git.getTopFolder(function (folder) {
+			git.diff(folder, function (files) {
+				showAffectedTests(files, options.output, options.run);
+			});
 		});
 	} else if (options.test && options.coverage) {
 		addTestPoint(options);
