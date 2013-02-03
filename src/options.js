@@ -42,8 +42,9 @@ function formArguments() {
 	if (args.h || args.help) {
 		wrongArguments(args);
 	}
+
 	if (args.v || args.version) {
-		console.log(package.version);
+		console.log(package.name, 'by', package.author, 'version', package.version);
 		process.exit(0);
 	}
 	if (args.info || args.reset || args.git) {
