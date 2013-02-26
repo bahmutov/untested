@@ -7,29 +7,12 @@ var fs = require('fs');
 var addTestPoint = require('./src/addTestPoint').addTestPoint;
 var dataStore = require('./src/dataStore');
 var runUnitTests = require('./src/runTests').run;
+var showAffectedFiles = require('./src/affectedFiles').showAffected;
 
 if (!module.parent) {
 	var commandLineOptions = require('./src/options').run();
 	console.assert(commandLineOptions, 'could not command line options');
 	run(commandLineOptions);
-}
-
-function showAffectedTests (filenames, outputFilename, runTests) {
-	console.assert(Array.isArray(filenames), 'expected source files to be an array');
-	// console.log('computing list of tests affected by changes in\n', filenames);
-	var tests = dataStore.findAffected(filenames);
-	console.assert(Array.isArray(tests), 'tests should be an array, not', tests);
-	var info = JSON.stringify(tests, null, 2);
-	if (outputFilename) {
-		fs.writeFileSync(outputFilename, info, 'utf-8');
-		console.log('saved', tests.length, 'affected tests names to', outputFilename);
-	} else {
-		console.log(tests.length ? 'Found ' + tests.length + ' test(s) to run'  : 'no tests need to be run');
-	}
-	if (runTests && tests.length) {
-		console.log('running', tests.length, 'tests affected by latest changes');
-		runUnitTests(tests);
-	}
 }
 
 function run(options) {
@@ -46,11 +29,9 @@ function run(options) {
 	}
 
 	if (options.git) {
-		var git = require('./src/git');
-		git.getTopFolder(function (folder) {
-			git.diff(folder, function (files) {
-				showAffectedTests(files, options.output, options.run);
-			});
+		showAffectedFiles({
+			output: options.output,
+			run: options.run
 		});
 	} else if (options.test && options.coverage) {
 		addTestPoint(options);

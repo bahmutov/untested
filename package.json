@@ -1,6 +1,6 @@
 {
   "name": "untested",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Orders tests for a source code change based on code coverage analysis.",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "repository": {
@@ -16,7 +16,9 @@
     "optimist": "latest",
     "lodash": "latest",
     "gt": "latest",
-    "lasso-node": "latest"
+    "lasso-node": "latest",
+		"ggit": "latest",
+		"check-types": "latest"
   },
   "engines": {
     "node": ">= 0.8.0"

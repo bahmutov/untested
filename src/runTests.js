@@ -1,6 +1,6 @@
 var spawn = require('child_process').spawn;
 var path = require('path');
-var gt = require('gt/covered');
+var gt = require('gt/src/covered');
 var lasso = require('lasso-node');
 
 function jsTest(test) {
