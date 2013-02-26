@@ -3,10 +3,10 @@ var check = require('check-types');
 var dataStore = require('./dataStore');
 
 function showAffectedTests (filenames, outputFilename, runTests) {
-	console.assert(Array.isArray(filenames), 'expected source files to be an array');
+	check.verifyArray(filenames, 'expected source files to be an array');
 	// console.log('computing list of tests affected by changes in\n', filenames);
 	var tests = dataStore.findAffected(filenames);
-	console.assert(Array.isArray(tests), 'tests should be an array, not', tests);
+	check.verifyArray(tests, 'tests should be an array, not', tests);
 	var info = JSON.stringify(tests, null, 2);
 	if (outputFilename) {
 		fs.writeFileSync(outputFilename, info, 'utf-8');
@@ -23,6 +23,7 @@ function showAffectedTests (filenames, outputFilename, runTests) {
 function showAffected(options) {
 	options = options || {};
 	git.repoRoot(function (folder) {
+		check.verifyString(folder, 'missing repo root folder');
 		git.changedFiles(folder, function (files) {
 			showAffectedTests(files, options.output, options.run);
 		});
