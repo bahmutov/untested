@@ -1,6 +1,6 @@
 {
   "name": "untested",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Orders tests for a source code change based on code coverage analysis.",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "repository": {
@@ -8,8 +8,8 @@
     "url": "https://github.com/bahmutov/untested.git"
   },
   "keywords": [
-    "js", "javascript", 
-    "testing", "quality", 
+    "js", "javascript",
+    "testing", "quality",
     "changelist", "commit"
   ],
   "dependencies": {
