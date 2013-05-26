@@ -31,5 +31,9 @@
   "bin": {
     "untested": "./untested.js"
   },
-  "main": "./untested.js"
+  "main": "./untested.js",
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.5.4",
+    "grunt": "~0.4.1"
+  }
 }
