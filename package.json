@@ -20,7 +20,7 @@
     "lodash": "~1.2.1",
     "gt": "~0.8.5",
     "lasso-node": "~0.1.8",
-    "ggit": "0.0.4",
+    "ggit": "0.0.5",
     "check-types": "~0.6.3",
     "grunt-bump": "0.0.2"
   },
