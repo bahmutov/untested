@@ -5,6 +5,7 @@ Orders tests for a source code change based on code coverage analysis.
 
 [![NPM info][nodei.co]](https://npmjs.org/package/lasso)
 
+[![Build status][ci-image]][ci-status]
 [![dependencies][dependencies-image]][dependencies-url]
 [![endorse][endorse-image]][endorse-url]
 
@@ -74,3 +75,5 @@ Contact Gleb Bahmutov gleb.bahmutov@gmail.com with any questions, etc.
 [dependencies-url]: https://david-dm.org/bahmutov/untested
 [endorse-image]: https://api.coderwall.com/bahmutov/endorsecount.png
 [endorse-url]: https://coderwall.com/bahmutov
+[ci-image]: https://secure.travis-ci.org/bahmutov/untested.png?branch=master
+[ci-status]: http://travis-ci.org/#!/bahmutov/untested
