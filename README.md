@@ -3,7 +3,7 @@ untested
 
 Orders tests for a source code change based on code coverage analysis.
 
-[![NPM info][nodei.co]](https://npmjs.org/package/lasso)
+[![NPM info][nodei.co]][npm-url]
 
 [![Build status][ci-image]][ci-status]
 [![dependencies][dependencies-image]][dependencies-url]
@@ -71,6 +71,7 @@ Author
 Contact Gleb Bahmutov gleb.bahmutov@gmail.com with any questions, etc.
 
 [nodei.co]: https://nodei.co/npm/untested.png?downloads=true
+[npm-url]: https://npmjs.org/package/lasso
 [dependencies-image]: https://david-dm.org/bahmutov/untested.png
 [dependencies-url]: https://david-dm.org/bahmutov/untested
 [endorse-image]: https://api.coderwall.com/bahmutov/endorsecount.png
