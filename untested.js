@@ -30,9 +30,10 @@ function run(options) {
 		});
 	} else if (options.test && options.coverage) {
 		addTestPoint(options);
-	} else if (options.affected) {
-		showAffectedTests(options.affected, options.output, options.run);
 	}
+    /*else if (options.affected) {
+		showAffectedTests(options.affected, options.output, options.run);
+	}*/
 }
 
 function coveredPercent(fileLineInfo) {
