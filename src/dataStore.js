@@ -1,10 +1,9 @@
 var fs = require('fs');
 var path = require('path');
-var util = require('util');
 var _ = require('lodash');
 
 function getUserHome() {
-	var win32 = (process.platform == 'win32');
+	var win32 = (process.platform === 'win32');
 	return process.env[win32 ? 'USERPROFILE' : 'HOME'];
 }
 
@@ -77,7 +76,7 @@ function findAffected(sourceFiles) {
 		Object.keys(coverage).forEach(function (coveredName) {
 			var covered = coverage[coveredName];
 			var found = sourceFiles.some(function (sourceFile) {
-				return (covered.name.toLowerCase() == sourceFile);
+				return (covered.name.toLowerCase() === sourceFile);
 			});
 			if (found) {
 				console.log('test', testName, 'covers', covered.name, 'at', covered.coverage + '%');
@@ -86,14 +85,14 @@ function findAffected(sourceFiles) {
 					coverage: covered.coverage
 				});
 				coveredSourceFiles.push(covered.name);
-			} 
+			}
 		});
 	});
 	coveredSourceFiles = _.uniq(coveredSourceFiles);
 	coveredSourceFiles = coveredSourceFiles.map(function (filename) {
 		return filename.toLowerCase();
 	});
-	
+
 	var notCoveredSourceFiles = _.difference(sourceFiles, coveredSourceFiles);
 	if (notCoveredSourceFiles.length) {
 		console.log('Could not find tests for following source files');

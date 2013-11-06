@@ -1,9 +1,9 @@
-var optimist = require("optimist");
+var optimist = require('optimist');
 var package = require('../package.json');
 var path = require('path');
 
 function getArguments() {
-	var args = optimist.usage(package.name + ' version ' + package.version + 
+	var args = optimist.usage(package.name + ' version ' + package.version +
 		' by ' + package.author + '\n' +	package.description + '\n' + 'Usage: $0')
 	.default({
 		help: false,
@@ -33,7 +33,7 @@ function getArguments() {
 	.boolean('run').alias('r', 'run').describe('run tests found to be affected')
 	.argv;
 	return args;
-};
+}
 
 function formArguments() {
 	var args = getArguments();

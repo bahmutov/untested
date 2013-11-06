@@ -1,5 +1,5 @@
-var spawn = require('child_process').spawn;
-var path = require('path');
+//var spawn = require('child_process').spawn;
+//var path = require('path');
 // var gt = require('gt/src/covered');
 var gt = require('gt').TestingWithCoverage;
 var lasso = require('lasso-node');
@@ -23,7 +23,7 @@ function pageTest(test) {
 	});
 }
 
-function runTest (test) {
+function runTest(test) {
 	console.assert(test, 'expected a test');
 	if (/\.js$/.test(test)) {
 		jsTest(test);
@@ -34,10 +34,10 @@ function runTest (test) {
 	}
 }
 
-function runTests (tests) {
+function runTests(tests) {
 	console.assert(Array.isArray(tests), 'expected list of tests, not', tests);
 	tests.forEach(function (test) {
-		runTest(test.name); 
+		runTest(test.name);
 	});
 }
 
