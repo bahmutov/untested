@@ -10,6 +10,8 @@
   "scripts": {
     "test": "grunt && node untested.js --info"
   },
+  "pre-commit": "npm test",
+  "pre-push": "rm -rf node_modules && npm install && npm test",
   "keywords": [
     "js",
     "javascript",
@@ -38,6 +40,7 @@
   "devDependencies": {
     "grunt-bump": "0.0.11",
     "grunt-contrib-jshint": "~0.7.1",
-    "grunt": "~0.4.1"
+    "grunt": "~0.4.1",
+    "pre-git": "0.0.13"
   }
 }
