@@ -21,7 +21,7 @@
   "dependencies": {
     "optimist": "~0.6.0",
     "lodash": "~2.2.1",
-    "gt": "~0.8.12",
+    "gt": "~0.8.16",
     "lasso-node": "~0.1.8",
     "ggit": "0.0.5",
     "check-types": "~0.6.5"
@@ -37,7 +37,7 @@
   "main": "./untested.js",
   "devDependencies": {
     "grunt-bump": "0.0.11",
-    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-jshint": "~0.7.1",
     "grunt": "~0.4.1"
   }
 }
