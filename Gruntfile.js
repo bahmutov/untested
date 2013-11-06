@@ -8,8 +8,7 @@ module.exports = function (grunt) {
                 jshintrc: '.jshintrc',
             },
             'default': {
-                // , 'src/*.js'
-                src: [ '*.js' ]
+                src: [ '*.js', 'src/addTestPoint.js' ]
             }
         }
     });

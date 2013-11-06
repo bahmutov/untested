@@ -1,6 +1,5 @@
 var fs = require('fs');
 var path = require('path');
-var util = require('util');
 var dataStore = require('./dataStore');
 
 // replaces existing test point with the same name
@@ -16,9 +15,6 @@ function addTestPoint(options) {
 	} else {
 		coverageData = options.coverage;
 	}
-
-	// console.log('read coverage data from', options.coverage, '\n', 
-	// 	util.inspect(coverageData, true, 2, true));
 
 	var data = dataStore.loadExistingTestPoints();
 	console.assert(data, 'could not load existing test data');
