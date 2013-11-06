@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://github.com/bahmutov/untested.git"
   },
+  "scripts": {
+    "test": "grunt && node untested.js --info"
+  },
   "keywords": [
     "js",
     "javascript",
