@@ -23,9 +23,9 @@
   "dependencies": {
     "optimist": "~0.6.0",
     "lodash": "~2.4.1",
-    "gt": "~0.8.21",
+    "gt": "~0.8.29",
     "lasso-node": "~0.1.11",
-    "ggit": "0.0.5",
+    "ggit": "0.0.11",
     "check-types": "~1.1.1"
   },
   "engines": {
@@ -41,6 +41,6 @@
     "grunt-bump": "0.0.13",
     "grunt-contrib-jshint": "~0.8.0",
     "grunt": "~0.4.2",
-    "pre-git": "0.0.14"
+    "pre-git": "0.0.15"
   }
 }
