@@ -10,7 +10,7 @@
   "scripts": {
     "test": "grunt && node untested.js --info"
   },
-  "pre-commit": "npm test",
+  "pre-commit": ["npm test", "npm version"],
   "pre-push": "rm -rf node_modules && npm install && npm test",
   "keywords": [
     "js",
