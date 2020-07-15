@@ -25,7 +25,7 @@
     "ggit": "0.6.2",
     "gt": "0.8.47",
     "lasso-node": "0.1.13",
-    "lodash": "~2.4.1",
+    "lodash": "~4.17.19",
     "optimist": "0.6.1"
   },
   "engines": {
